@@ -1,0 +1,21 @@
+name: publishpublish
+run-name: ${{ github.actor }} build new image
+on: [push]
+jobs:
+       publish-odoo16-image:
+              runs-on: ubuntu-latest
+              steps:
+                     - uses: actions/checkout@v2
+                     - uses: docker/login-action@v1
+                       with:
+                              registry: ghcr.io
+                              username: ${{ github.actor }}
+                              password: ${{ secrets.GITHUB_TOKEN }}
+                     - name: Build the CSC CETD Docker image
+                       run: |
+                              timetag=(`date +%Y%M%d`)
+                              docker build . --build-arg VERSION=1.1.0 --tag ghcr.io/coincodile/cetd:1.1.0.${timetag} --tag ghcr.io/coincodile/cetd:1.1.0 ghcr.io/coincodile/cetd:1.1 ghcr.io/coincodile/cetd:latest
+                              docker push ghcr.io/coincodile/cetd:1.1.0.${timetag}
+                              docker push ghcr.io/coincodile/cetd:1.1.0
+                              docker push ghcr.io/coincodile/cetd:1.1
+                              docker push ghcr.io/coincodile/cetd:latest

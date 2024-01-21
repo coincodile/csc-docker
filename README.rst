@@ -9,7 +9,7 @@ The general synopsis is as follows:
 .. code-blok:: bash
   
   docker run --interactive \
-     genz-pool/cetd \
+     ghcr.io/coincodile/cetd \
          (Era based commands | Byron specific commands | Miscellaneous commands)
 
 
