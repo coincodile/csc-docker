@@ -14,7 +14,7 @@ jobs:
                      - name: Build the CSC CETD Docker image
                        run: |
                               timetag=(`date +%Y%M%d`)
-                              docker build . --build-arg VERSION=1.1.0 --tag ghcr.io/coincodile/cetd:1.1.0.${timetag} --tag ghcr.io/coincodile/cetd:1.1.0 ghcr.io/coincodile/cetd:1.1 ghcr.io/coincodile/cetd:latest
+                              docker buildx build . --build-arg VERSION=1.1.0 --tag ghcr.io/coincodile/cetd:1.1.0.${timetag} --tag ghcr.io/coincodile/cetd:1.1.0 ghcr.io/coincodile/cetd:1.1 ghcr.io/coincodile/cetd:latest
                               docker push ghcr.io/coincodile/cetd:1.1.0.${timetag}
                               docker push ghcr.io/coincodile/cetd:1.1.0
                               docker push ghcr.io/coincodile/cetd:1.1
