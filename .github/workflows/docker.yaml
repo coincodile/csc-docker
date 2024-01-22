@@ -2,7 +2,7 @@ name: publishpublish
 run-name: ${{ github.actor }} build new image
 on: [push]
 jobs:
-       publish-odoo16-image:
+       publish-image:
               runs-on: ubuntu-latest
               steps:
                      - uses: actions/checkout@v2
