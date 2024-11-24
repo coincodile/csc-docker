@@ -1,4 +1,4 @@
-FROM golang:1.18-buster as build
+FROM golang:1.20.5-buster as build
 WORKDIR /build
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
